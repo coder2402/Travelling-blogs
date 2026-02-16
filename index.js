@@ -9,7 +9,7 @@ const port = process.env.PORT || 8000;
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.use(express.static('static'));
+app.use(express.static('static', { maxAge: 86400000 }));
 app.use(express.urlencoded());
 
 const db = require('./config/mongoose');
