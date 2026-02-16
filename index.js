@@ -12,8 +12,7 @@ app.set('views', 'views');
 app.use(express.static('static'));
 app.use(express.urlencoded());
 
-const db = require('./config/mongoose');
-const safar = require('./models/safarSchema');
+require('./config/mongoose');
 
 app.use('/', require('./routes/index'));
 
