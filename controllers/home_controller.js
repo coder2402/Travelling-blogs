@@ -23,7 +23,7 @@ module.exports.add_review = function(req, res) {
 }
 
 module.exports.explore = function(req, res) {
-    Safar.find().sort('_id').exec(function(err, reviews) {
+    Safar.find().sort('_id').lean().exec(function(err, reviews) {
         if (err) {
             console.log('error in fetching reviews!');
             return res.status(500).send('Error in fetching reviews');
