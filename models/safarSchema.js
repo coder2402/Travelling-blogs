@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const safarSchema = new mongoose.Schema({
-    username: { type: String, requires: true },
+    username: { type: String, required: true },
     location: { type: String, required: true },
     image: { type: String, required: true },
     experience: { type: String, required: true },
