@@ -13,13 +13,13 @@
             <div class="main-content">
                 <form action="/add-review" method="post">
 
-                    <div><input type="text" placeholder="Name" name="username"></div>
-                    <div><input type="text" placeholder="Location" name="location"></div>
-                    <div><input type="text" placeholder="Image URL" name="image"></div>
-                    <div><input type="text" placeholder="Experience" name="experience"></div>
-                    <div><input type="number" placeholder="Rating" name="rating"></div>
-                    <div><input type="text" placeholder="Places" name="places"></div>
-                    <div><input type="number" placeholder="Expenditure for 2" name="expenditure"></div>
+                    <div><input type="text" placeholder="Name" name="username" aria-label="Name" required></div>
+                    <div><input type="text" placeholder="Location" name="location" aria-label="Location" required></div>
+                    <div><input type="url" placeholder="Image URL" name="image" aria-label="Image URL" required></div>
+                    <div><input type="text" placeholder="Experience" name="experience" aria-label="Experience" required></div>
+                    <div><input type="number" placeholder="Rating (0-5)" name="rating" min="0" max="5" aria-label="Rating" required></div>
+                    <div><input type="text" placeholder="Places" name="places" aria-label="Places" required></div>
+                    <div><input type="number" placeholder="Expenditure for 2" name="expenditure" min="0" aria-label="Expenditure for 2" required></div>
                     <div><button type="submit">Submit</button></div>
                 </form>
             </div>
