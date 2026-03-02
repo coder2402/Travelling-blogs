@@ -11,10 +11,19 @@
 <body>
     <%-include('header')%>
         <div class="main">
+            <% if (!reviews || reviews.length === 0) { %>
+                <div class="review" style="justify-content: center; align-items: center; flex-direction: column;">
+                    <h1 class="user">No travel experiences yet!</h1>
+                    <h1 class="data" style="margin-top: 10px; color: white;">Be the first to share your journey.</h1>
+                    <div class="delete-btn" style="width: auto; padding: 5px 20px; text-align: center;">
+                        <a href="/new-review" aria-label="Add a new review">Add Review</a>
+                    </div>
+                </div>
+            <% } else { %>
             <% for(let i of reviews){ %>
                 <div class="review">
                     <div class="left">
-                        <img class="img" src="<%=i.image%>" alt="">
+                        <img class="img" src="<%=i.image%>" alt="Image for <%=i.location%> posted by <%=i.username%>">
                         <h1 class="user">
                             <%=i.username%>
                         </h1>
@@ -39,6 +48,7 @@
                     </div>
                 </div>
                 <% } %>
+            <% } %>
         </div>
         <%-include('footer')%>
 </body>
