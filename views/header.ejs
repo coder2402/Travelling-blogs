@@ -3,18 +3,21 @@
     <a href="/about">About</a>
     <a href="/explore">Explore</a>
     <a href="/new-review">Add Review</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="myTopnav" role="button">
+        <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
 </div>
 
 <script>
     function myFunction() {
         var x = document.getElementById("myTopnav");
+        var icon = document.querySelector(".icon");
         if (x.className === "topnav") {
             x.className += " responsive";
+            icon.setAttribute("aria-expanded", "true");
         } else {
             x.className = "topnav";
+            icon.setAttribute("aria-expanded", "false");
         }
     }
 </script>
