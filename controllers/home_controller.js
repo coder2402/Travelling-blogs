@@ -12,7 +12,32 @@ module.exports.review = function(req, res) {
 
 
 module.exports.add_review = function(req, res) {
-    Safar.create(req.body,
+    const { username, location, image, experience, rating, places, expenditure } = req.body;
+
+    // Presence validation
+    if (!username || !location || !image || !experience || rating === undefined || !places || expenditure === undefined) {
+        return res.status(400).send('All fields are required');
+    }
+
+    // Type validation for numeric fields
+    const numericRating = Number(rating);
+    const numericExpenditure = Number(expenditure);
+
+    if (isNaN(numericRating) || isNaN(numericExpenditure)) {
+        return res.status(400).send('Rating and expenditure must be numbers');
+    }
+
+    const reviewData = {
+        username,
+        location,
+        image,
+        experience,
+        rating: numericRating,
+        places,
+        expenditure: numericExpenditure
+    };
+
+    Safar.create(reviewData,
         function(err, newReview) {
             if (err) {
                 console.log('Error in creating review');

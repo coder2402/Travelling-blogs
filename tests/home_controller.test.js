@@ -62,9 +62,21 @@ describe('Home Controller - Static Views', () => {
 
 describe('Home Controller - add_review', () => {
     test('add_review creates a review and redirects to /explore', () => {
-        const req = { body: { username: 'testuser' } };
+        const req = {
+            body: {
+                username: 'testuser',
+                location: 'testloc',
+                image: 'testimg',
+                experience: 'testexp',
+                rating: 5,
+                places: 'testplaces',
+                expenditure: 100
+            }
+        };
         const res = {
-            redirect: mock.fn((path) => {})
+            redirect: mock.fn((path) => {}),
+            status: mock.fn((code) => res),
+            send: mock.fn((msg) => {})
         };
         const createMock = mock.method(Safar, 'create', (data, callback) => {
             callback(null, { _id: '123' });
@@ -81,7 +93,17 @@ describe('Home Controller - add_review', () => {
     });
 
     test('add_review returns 500 on error', () => {
-        const req = { body: { username: 'testuser' } };
+        const req = {
+            body: {
+                username: 'testuser',
+                location: 'testloc',
+                image: 'testimg',
+                experience: 'testexp',
+                rating: 5,
+                places: 'testplaces',
+                expenditure: 100
+            }
+        };
         const res = {
             status: mock.fn((code) => res),
             send: mock.fn((msg) => {})
