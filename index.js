@@ -27,7 +27,6 @@ app.use(express.static('static', { maxAge: 86400000 }));
 app.use(express.urlencoded());
 
 const db = require('./config/mongoose');
-const safar = require('./models/safarSchema');
 
 app.use('/', require('./routes/index'));
 
