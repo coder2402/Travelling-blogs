@@ -13,8 +13,8 @@
         <div class="main">
             <% if (!reviews || reviews.length === 0) { %>
                 <div class="review" style="justify-content: center; align-items: center; flex-direction: column;">
-                    <h1 class="user">No travel experiences yet!</h1>
-                    <h1 class="data" style="margin-top: 10px; color: white;">Be the first to share your journey.</h1>
+                    <p class="user">No travel experiences yet!</p>
+                    <p class="data" style="margin-top: 10px; color: white;">Be the first to share your journey.</p>
                     <div class="delete-btn" style="width: auto; padding: 0; text-align: center;">
                         <a href="/new-review" style="display: block; padding: 5px 20px;" aria-label="Add a new review">Add Review</a>
                     </div>
@@ -24,26 +24,26 @@
                 <div class="review">
                     <div class="left">
                         <img class="img" src="<%=i.image%>" alt="Image for <%=i.location%> posted by <%=i.username%>">
-                        <h1 class="user">
+                        <p class="user">
                             <%=i.username%>
-                        </h1>
+                        </p>
                     </div>
                     <div class="right">
-                        <h1 class="data"><span>Location: </span>
+                        <p class="data"><span>Location: </span>
                             <%=i.location%>
-                        </h1>
-                        <h1 class="data"><span>Experience:</span>
+                        </p>
+                        <p class="data"><span>Experience:</span>
                             <%=i.experience%>
-                        </h1>
-                        <h1 class="data"><span>Places to Visit:</span>
+                        </p>
+                        <p class="data"><span>Places to Visit:</span>
                             <%=i.places%>
-                        </h1>
-                        <h1 class="data"><span>Rating:</span>
+                        </p>
+                        <p class="data"><span>Rating:</span>
                             <%=i.rating%>
-                        </h1>
-                        <h1 class="data"><span>Expenditure:</span>
+                        </p>
+                        <p class="data"><span>Expenditure:</span>
                             <%=i.expenditure%>
-                        </h1>
+                        </p>
                         <div class="delete-btn"> <a href="/delete-review/?id=<%= i._id %>" onclick="return confirm('Are you sure you want to delete this review?');" aria-label="Delete review for <%=i.location%> by <%=i.username%>">Delete <i class="fas fa-trash" aria-hidden="true"></i></a></div>
                     </div>
                 </div>
