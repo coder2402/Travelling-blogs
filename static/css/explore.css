@@ -30,6 +30,8 @@ a {
 
 .user {
     font-size: 20px;
+    font-weight: bold;
+    margin: 0.67em 0;
     text-align: center;
     color: white;
     font-family: cursive;
@@ -48,6 +50,8 @@ span {
 
 .data {
     font-size: 15px;
+    font-weight: bold;
+    margin: 0.67em 0;
 }
 
 .delete-btn {
