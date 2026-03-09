@@ -62,12 +62,15 @@ span {
     width: 100px;
     margin-top: 8px;
     background-color: black;
-}
-
-.delete-btn a {
-    color: white;
     font-family: cursive;
     font-weight: 700;
     display: block;
-    padding-left: 12px;
+    padding: 5px 12px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.delete-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
 }
