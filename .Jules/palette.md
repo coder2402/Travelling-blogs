@@ -7,3 +7,6 @@
 ## 2024-05-24 - Accessibility issues with heading tags for visual styling
 **Learning:** Using heading tags like `<h1>` to achieve specific visual styling (like bold text or larger font size) for non-heading text, such as list items or usernames within repeated UI cards, severely disrupts the document outline for screen reader users. Screen readers use heading tags to navigate the page structure, and misusing them makes the content confusing and hard to traverse.
 **Action:** Always use appropriate semantic elements (like `<p>` or `<div>`) for text that is not a true section heading. Apply the desired visual styling using CSS classes instead of relying on default browser styling for structural elements.
+## 2024-03-11 - Maximize Button Click Area (Fitts's Law)
+**Learning:** In Safar's UI, pseudo-buttons were built using generic `<div>` wrappers that applied the background and border styles, while the nested `<a>` tags handled interaction and padding. This created dead zones on the edges of the button where clicks would not register, violating Fitts's Law.
+**Action:** Apply all visual boundary and padding styles directly to the `<a>` tag and use `display: block` or `display: inline-block` to maximize the interactive area for all future link-based buttons.
