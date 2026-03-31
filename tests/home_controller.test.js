@@ -134,7 +134,8 @@ describe('Home Controller - explore', () => {
 
         const execMock = mock.fn((callback) => callback(null, reviews));
         const leanMock = mock.fn(() => ({ exec: execMock }));
-        const sortMock = mock.fn((field) => ({ lean: leanMock }));
+        const limitMock = mock.fn((count) => ({ lean: leanMock }));
+        const sortMock = mock.fn((field) => ({ limit: limitMock }));
         const findMock = mock.method(Safar, 'find', () => ({ sort: sortMock }));
 
         homeController.explore(req, res);
@@ -142,6 +143,8 @@ describe('Home Controller - explore', () => {
         assert.strictEqual(findMock.mock.callCount(), 1);
         assert.strictEqual(sortMock.mock.callCount(), 1);
         assert.strictEqual(sortMock.mock.calls[0].arguments[0], '_id');
+        assert.strictEqual(limitMock.mock.callCount(), 1);
+        assert.strictEqual(limitMock.mock.calls[0].arguments[0], 50);
         assert.strictEqual(leanMock.mock.callCount(), 1);
         assert.strictEqual(execMock.mock.callCount(), 1);
         assert.strictEqual(res.render.mock.callCount(), 1);
@@ -160,11 +163,14 @@ describe('Home Controller - explore', () => {
 
         const execMock = mock.fn((callback) => callback(new Error('Test Error')));
         const leanMock = mock.fn(() => ({ exec: execMock }));
-        const sortMock = mock.fn((field) => ({ lean: leanMock }));
+        const limitMock = mock.fn((count) => ({ lean: leanMock }));
+        const sortMock = mock.fn((field) => ({ limit: limitMock }));
         const findMock = mock.method(Safar, 'find', () => ({ sort: sortMock }));
 
         homeController.explore(req, res);
 
+        assert.strictEqual(limitMock.mock.callCount(), 1);
+        assert.strictEqual(limitMock.mock.calls[0].arguments[0], 50);
         assert.strictEqual(leanMock.mock.callCount(), 1);
         assert.strictEqual(res.status.mock.callCount(), 1);
         assert.strictEqual(res.status.mock.calls[0].arguments[0], 500);
